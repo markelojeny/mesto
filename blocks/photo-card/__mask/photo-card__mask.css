@@ -1,0 +1,13 @@
+.photo-card__mask {
+    margin-right: 20px;
+}
+
+/*@media screen and (max-width: 320px) {
+    .photo-grid {
+        margin-top: 64px;
+        max-width: 90%;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(12, 1fr);
+        gap: 12px;
+    }
+}

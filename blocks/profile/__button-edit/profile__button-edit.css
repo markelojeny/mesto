@@ -1,0 +1,6 @@
+.profile__button-edit {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #fff;
+    background: url(../../../image/karandash.svg) #000 no-repeat center;
+}

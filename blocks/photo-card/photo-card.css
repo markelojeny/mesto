@@ -1,0 +1,12 @@
+.photo-card {
+    max-width: 282px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 905px) {
+    .photo-card {
+        margin: 0 auto 20px;
+        min-width: 88.13%;
+    }
+}
