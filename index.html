@@ -9,7 +9,6 @@
     <body class="page">
         <header class="header">
             <img class="header__logo" src="./image/logo.svg" alt="Лого">
-            <div class="header__line"></div>
         </header>
         <main class="content">
             <section class="profile">
@@ -18,54 +17,54 @@
                     <div class="profile__info">
                         <div class="profile__edit">
                             <h1 class="profile__nickname">Жак-Ив Кусто</h1>
-                            <button class="profile__button-edit"></button>
+                            <button class="profile__button-edit" type="button"></button>
                         </div>
                         <p class="profile__about">Исследователь океана</p>
                     </div>
                 </div>
-                <button class="profile__button-add"></button>
+                <button class="profile__button-add" type="button"></button>
             </section>
             <section class="photo-cards">
                 <div class="photo-card">
-                    <img class="photo-card__image" src="./image/karachaevs.jpg" alt="Карачаевск">
+                    <img class="photo-card__picture" src="./image/karachaevs.jpg" alt="Карачаевск">
                     <div class="photo-card__group">
-                        <h2 class="photo-card__title">Карачаевск</h2>
-                        <img class="photo-card__mask" src="./image/like.svg" alt="Мне нравится">
+                        <h2 class="photo-card__title">Карачаевo-Черкесия</h2>
+                        <button class="photo-card__mask photo-card__mask_active" type="button"></button>
                     </div>
                 </div>
                 <div class="photo-card">
-                    <img class="photo-card__image" src="./image/elbrus.jpg" alt="Гора Эльбрус">
+                    <img class="photo-card__picture" src="./image/elbrus.jpg" alt="Гора Эльбрус">
                     <div class="photo-card__group">
                         <h2 class="photo-card__title">Гора Эльбрус</h2>
-                        <img class="photo-card__mask" src="./image/like.svg" alt="Мне нравится">
+                        <button class="photo-card__mask" type="button"></button>
                     </div>
                 </div>
                 <div class="photo-card">
-                    <img class="photo-card__image" src="./image/dombay.png" alt="Домбай">
+                    <img class="photo-card__picture" src="./image/dombay.png" alt="Домбай">
                     <div class="photo-card__group">
                         <h2 class="photo-card__title">Домбай</h2>
-                        <img class="photo-card__mask" src="./image/like.svg" alt="Мне нравится">
+                        <button class="photo-card__mask" type="button"></button>
                     </div>
                 </div>
                 <div class="photo-card">
-                    <img class="photo-card__image" src="./image/istambul.jpg" alt="Стамбул">
+                    <img class="photo-card__picture" src="./image/istambul.jpg" alt="Стамбул">
                     <div class="photo-card__group">
                         <h2 class="photo-card__title">Стамбул</h2>
-                        <img class="photo-card__mask" src="./image/like.svg" alt="Мне нравится">
+                        <button class="photo-card__mask" type="button"></button>
                     </div>
                 </div>
                 <div class="photo-card">
-                    <img class="photo-card__image" src="./image/home.jpg" alt="Дом">
+                    <img class="photo-card__picture" src="./image/home.jpg" alt="Дом">
                     <div class="photo-card__group">
                         <h2 class="photo-card__title">Дом</h2>
-                        <img class="photo-card__mask" src="./image/like.svg" alt="Мне нравится">
+                        <button class="photo-card__mask" type="button"></button>
                     </div>
                 </div>
                 <div class="photo-card">
                     <img class="photo-card__image" src="./image/arca.jpg" alt="Арка">
                     <div class="photo-card__group">
                         <h2 class="photo-card__title">Арка</h2>
-                        <img class="photo-card__mask" src="./image/like.svg" alt="Мне нравится">
+                        <button class="photo-card__mask" type="button"></button>
                     </div>
                 </div>
             </section>
@@ -73,5 +72,17 @@
         <footer class="footer">
             <p class="footer__copyright">© 2020 Mesto Russia</p>
         </footer>
+        <section class="popup">
+            <div class="popup__container">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form class="form">
+                    <input class="form__input form__input-name" type="text" placeholder="Имя профиля" value="" autocomplete="off" required>
+                    <input class="form__input form__input-about" type="text" placeholder="Описание профиля" value="" autocomplete="off" required>
+                    <button class="form__button-save" type="submit"><p class="form__button-text">Сохранить</p></button>
+                </form>
+                <button class="popup__button-close" type="button"></button>
+            </div>
+        </section>
+        <script src="./sqripts/index.js"></script>
     </body>
 </html>

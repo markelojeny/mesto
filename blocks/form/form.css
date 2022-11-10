@@ -1,0 +1,15 @@
+.form {
+    width: 83.3%;
+    min-height: 190px;
+    margin: 41px auto 37px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 455px) {
+    .form {
+        margin-top: 62px;
+    }
+}

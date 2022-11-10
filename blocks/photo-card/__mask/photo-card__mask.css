@@ -1,13 +1,12 @@
 .photo-card__mask {
     margin-right: 20px;
+    width: 22px;
+    height: 19px;
+    padding: 0;
+    border: none;
+    background: url(../../../image/like.svg) #fff no-repeat center;
 }
 
-/*@media screen and (max-width: 320px) {
-    .photo-grid {
-        margin-top: 64px;
-        max-width: 90%;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(12, 1fr);
-        gap: 12px;
-    }
+.photo-card__mask:hover {
+    opacity: .6;
 }

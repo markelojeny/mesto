@@ -4,3 +4,15 @@
     border: 1px solid #fff;
     background: url(../../../image/karandash.svg) #000 no-repeat center;
 }
+
+.profile__button-edit:hover {
+    opacity: .6;
+}
+
+@media screen and (max-width: 405px) {
+    .profile__button-edit {
+        width: 18px;
+        height: 18px;
+        background: url(../../../image/minkaran.svg) #000 no-repeat center;
+    }
+}

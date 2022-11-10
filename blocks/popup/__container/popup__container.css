@@ -1,0 +1,26 @@
+.popup__container {
+    position: fixed;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: #fff;
+    min-width: 430px;
+    min-height: 330px;
+    z-index: 2;
+    transition: 0.5s;
+}
+
+@media screen and (max-width: 455px) {
+    .popup__container {
+        min-width: 282px;
+        max-width: 282px;
+        min-height: 322px;
+        max-height: 322px;
+    }
+}
+
+@media screen and (max-width: 316px) {
+    .popup__container {
+        min-width: 252px;
+        min-height: 332px;
+    }
+}

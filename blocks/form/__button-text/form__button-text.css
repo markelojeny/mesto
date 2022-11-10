@@ -1,15 +1,16 @@
-.footer__copyright {
+.form__button-text {
     font-family: 'Inter';
     font-style: normal;
+    margin: 0;
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
-    color: #545454;
+    text-align: center;
+    color: #fff;
 }
 
-
-@media screen and (max-width: 405px) {
-    .footer__copyright {
+@media screen and (max-width: 455px) {
+    .form__button-text {
         font-size: 14px;
         line-height: 17px;
     }

@@ -11,3 +11,9 @@
         display: block;
     }
 }
+
+@media screen and (max-width: 405px) {
+    .photo-cards {
+        margin-top: 36px;
+    }
+}
