@@ -1,7 +1,6 @@
 .profile__nickname {
     margin: 0 18px 0 0;
-    max-width: 290px;
-    font-family: 'Inter';
+    max-width: 300px;
     font-style: normal;
     font-weight: 500;
     font-size: 42px;
@@ -17,5 +16,6 @@
         margin-right: 10px;
         font-size: 27px;
         line-height: 33px;
+        max-width: 189px;
     }
 }

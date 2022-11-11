@@ -4,7 +4,8 @@
     padding: 0;
     border: 2px solid #fff;
     border-radius: 2px;
-    background: url(../../../image/plus.svg) #000 no-repeat center;
+    background: url(../../../images/plus.svg) #000 no-repeat center;
+    cursor: pointer;
 }
 
 .profile__button-add:hover {
@@ -20,6 +21,6 @@
 
 @media screen and (max-width: 415px) {
     .profile__button-add {
-        background-image: url(../../../image/minplus.svg);
+        background-image: url(../../../images/minplus.svg);
     }
 }

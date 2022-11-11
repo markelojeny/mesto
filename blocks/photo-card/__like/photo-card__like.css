@@ -4,7 +4,8 @@
     height: 19px;
     padding: 0;
     border: none;
-    background: url(../../../image/like.svg) #fff no-repeat center;
+    background: url(../../../images/like.svg) #fff no-repeat center;
+    cursor: pointer;
 }
 
 .photo-card__like:hover {

@@ -1,11 +1,12 @@
 .popup__button-close {
     border: 0;
-    background: url(../../../image/krest.svg) no-repeat center;
+    background: url(../../../images/krest.svg) no-repeat center;
     position: absolute;
     width: 32px;
     height: 32px;
     right: -40px;
     top: -40px;
+    cursor: pointer;
 }
 
 .popup__button-close:hover {
@@ -16,6 +17,6 @@
     .popup__button-close {
         right: -5px;
         top: -40px;
-        background-image: url(../../../image/minkrest.svg);
+        background-image: url(../../../images/minkrest.svg);
     }
 }
