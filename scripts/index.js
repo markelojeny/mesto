@@ -18,8 +18,8 @@ popupOpenButtonElement.addEventListener('click', popupOpen);
 popupCloseButtonElement.addEventListener('click', popupClose);
 
 let formElement = document.querySelector('.form');
-let nameInput = formElement.querySelector('.form__input-name');
-let jobInput = formElement.querySelector('.form__input-about');
+let nameInput = formElement.querySelector('.form__input_edit_name');
+let jobInput = formElement.querySelector('.form__input_edit_about');
 
 let profileNickname = profileElement.querySelector('.profile__nickname');
 let profileAbout = profileElement.querySelector('.profile__about');
