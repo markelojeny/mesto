@@ -1,4 +1,4 @@
-.photo-card__mask {
+.photo-card__like {
     margin-right: 20px;
     width: 22px;
     height: 19px;
@@ -7,6 +7,6 @@
     background: url(../../../image/like.svg) #fff no-repeat center;
 }
 
-.photo-card__mask:hover {
-    opacity: .6;
+.photo-card__like:hover {
+    opacity: .5;
 }

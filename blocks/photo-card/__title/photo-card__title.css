@@ -1,6 +1,7 @@
 .photo-card__title {
     max-width: 195px;
-    margin-left: 20px;
+    margin: 0 0 0 20px;
+    padding: 0;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 900;
