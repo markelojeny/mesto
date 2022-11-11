@@ -10,36 +10,6 @@
     }
 }
 
-@media screen and (max-width: 425px) {
-    .footer {
-        margin-left: 5.7%;
-    }
-}
-
-@media screen and (max-width: 410px) {
-    .footer {
-        margin-left: 10.7%;
-    }
-}
-
-@media screen and (max-width: 365px) {
-    .footer {
-        margin-left: 9.7%;
-    }
-}
-
-@media screen and (max-width: 365px) {
-    .footer {
-        margin-left: 9.7%;
-    }
-}
-
-@media screen and (max-width: 345px) {
-    .footer {
-        margin-left: 8%;
-    }
-}
-
 @media screen and (max-width: 320px) {
     .footer {
         margin-left: 5.94%;
