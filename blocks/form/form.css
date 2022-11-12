@@ -11,5 +11,6 @@
 @media screen and (max-width: 455px) {
     .form {
         margin-top: 62px;
+        margin-bottom: 25px;
     }
 }
