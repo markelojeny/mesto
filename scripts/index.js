@@ -163,7 +163,7 @@ function formSubmitHandlerPlace (evt) {
   closePlace();
 }
 
-const popupCloseButtonImage = imageElement.querySelector('.popup__button-close_type_image');
+const popupCloseButtonImage = imageElement.querySelector('.popup-image__button-close');
 
   const closeImage = function() {
     imageElement.classList.remove('popup_opened');
