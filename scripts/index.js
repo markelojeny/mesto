@@ -28,46 +28,35 @@ const popupSubmitButtonElement = formElement.querySelector('.form__button-save')
 
 const popupCloseButtonPlace = placeElement.querySelector('.popup__button-close');
 const popupOpenButtonPlace = profileElement.querySelector('.profile__button-add');
+const popupSubmitButtonPlace = formPlace.querySelector('.form__button-save');
 
-function closeOpenedPopup (evt) {
-  const openedPopup = document.querySelector('.popup_opened');
-
-  if ((evt.key !== "Escape") || (!openedPopup)) {
-    return;
-  }
-
-  closePopup(openedPopup);
-}
-
-const popupCloseOverlay = function(popup, event) { 
+const closePopupOverlay = function(event) { 
   if (event.target === event.currentTarget) { 
-    popup.classList.remove('popup_opened'); 
+    closePopup(event.target);
   }
 }
 
-function closeByPopupByEsc () {
-  document.addEventListener('keydown', closeOpenedPopup); 
+function closeByPopupByEsc (evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  } 
 }
 
 const openPopup = function (popup) {
   popup.classList.add('popup_opened');
-  closeByPopupByEsc();
-  popup.addEventListener('mousedown', function (event) {
-    popupCloseOverlay(popup, event); 
-  });
+  popup.addEventListener('mousedown', closePopupOverlay);
+  document.addEventListener('keydown', closeByPopupByEsc);
 }
 
 const closePopup = function (popup) {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closeOpenedPopup);
-  popup.removeEventListener('mousedown', function (event) {
-    popupCloseOverlay(popup, event); 
-  });
+  document.removeEventListener('keydown', closeByPopupByEsc);
+  popup.removeEventListener('mousedown', closePopupOverlay); 
 }
 
 popupOpenButtonPlace.addEventListener('click', function() {
-  hideInputError (placeNameInput, obj);
-  hideInputError (placeLinkInput, obj);
+  disabledButtonState (popupSubmitButtonPlace, obj)
   placeNameInput.value = "";
   placeLinkInput.value = "";
   openPopup(placeElement);
