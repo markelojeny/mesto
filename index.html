@@ -34,9 +34,11 @@
         <div class="popup popup_type_edit">
             <div class="popup__container popup__container_type_form">
                 <h2 class="popup__title popup__title_type_form">Редактировать профиль</h2>
-                <form class="form form_type_edit" name="form-edit">
-                    <input class="form__input form__input_edit_name" name="user-name" type="text" placeholder="Имя профиля" value="" autocomplete="off" required>
-                    <input class="form__input form__input_edit_about" name="user-about" type="text" placeholder="Описание профиля" value="" autocomplete="off" required>
+                <form class="form form_type_edit" name="form-edit" novalidate>
+                    <input class="form__input form__input_edit_name" minlength="2" maxlength="40" name="user-name" type="text" placeholder="Имя профиля" value="" autocomplete="off" required>
+                    <span class="form__error" id="user-name-error"></span>
+                    <input class="form__input form__input_edit_about" minlength="2" maxlength="200" name="user-about" type="text" placeholder="Описание профиля" value="" autocomplete="off" required>
+                    <span class="form__error" id="user-about-error"></span>
                     <button class="form__button-save form__button-save_type_edit" type="submit">Сохранить</button>
                 </form>
                 <button class="popup__button-close" type="button"></button>
@@ -46,10 +48,12 @@
         <div class="popup popup_type_place">
             <div class="popup__container popup__container_type_form">
                 <h2 class="popup__title popup__title_type_form">Новое место</h2>
-                <form class="form form_type_place" name="form-place">
-                    <input class="form__input form__input_add_name" name="place-name" type="text" placeholder="Название" value="" autocomplete="off" required>
+                <form class="form form_type_place" name="form-place" novalidate>
+                    <input class="form__input form__input_add_name" minlength="1" maxlength="30" name="place-name" type="text" placeholder="Название" value="" autocomplete="off" required>
+                    <span class="form__error" id="place-name-error"></span>
                     <input class="form__input form__input_add_link" name="place-link" type="url" alt="" placeholder="Ссылка на картинку" value="" autocomplete="off" required>
-                    <button class="form__button-save form__button-save_type_place" type="submit">Сохранить</button>
+                    <span class="form__error" id="place-link-error"></span>
+                    <button class="form__button-save form__button-save_type_place" type="submit">Создать</button>
                 </form>
                 <button class="popup__button-close" type="button"></button>
             </div>
@@ -72,6 +76,7 @@
                 <button class="photo-card__button-delete" type="button"></button>
             </article>
         </template>
+        <script src="./scripts/validate.js"></script>
         <script src="./scripts/index.js"></script>
     </body>
 </html>

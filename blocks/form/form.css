@@ -2,10 +2,7 @@
     width: 83.3%;
     min-height: 190px;
     margin: 41px auto 37px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    display: block;
 }
 
 @media screen and (max-width: 455px) {

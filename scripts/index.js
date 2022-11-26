@@ -24,25 +24,57 @@ const placeTitle = imageElement.querySelector('.popup__title_type_image');
 
 const popupOpenButtonElement = profileElement.querySelector('.profile__button-edit');
 const popupCloseButtonElement = popupElement.querySelector('.popup__button-close');
-
+const popupSubmitButtonElement = formElement.querySelector('.form__button-save');
 
 const popupCloseButtonPlace = placeElement.querySelector('.popup__button-close');
 const popupOpenButtonPlace = profileElement.querySelector('.profile__button-add');
 
+function closeOpenedPopup (evt) {
+  const openedPopup = document.querySelector('.popup_opened');
+
+  if ((evt.key !== "Escape") || (!openedPopup)) {
+    return;
+  }
+
+  closePopup(openedPopup);
+}
+
+const popupCloseOverlay = function(popup, event) { 
+  if (event.target === event.currentTarget) { 
+    popup.classList.remove('popup_opened'); 
+  }
+}
+
+function closeByPopupByEsc () {
+  document.addEventListener('keydown', closeOpenedPopup); 
+}
+
 const openPopup = function (popup) {
   popup.classList.add('popup_opened');
+  closeByPopupByEsc();
+  popup.addEventListener('mousedown', function (event) {
+    popupCloseOverlay(popup, event); 
+  });
 }
 
 const closePopup = function (popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeOpenedPopup);
+  popup.removeEventListener('mousedown', function (event) {
+    popupCloseOverlay(popup, event); 
+  });
 }
 
 popupOpenButtonPlace.addEventListener('click', function() {
+  hideInputError (placeNameInput, obj);
+  hideInputError (placeLinkInput, obj);
   placeNameInput.value = "";
   placeLinkInput.value = "";
   openPopup(placeElement);
 });
+
 popupOpenButtonElement.addEventListener('click', function() {
+  unabledButtonState (popupSubmitButtonElement, obj);
   nameInput.value = profileNickname.textContent;
   jobInput.value = profileAbout.textContent;
   openPopup(popupElement);
@@ -99,13 +131,6 @@ function deleteHandler(event) {
   currentImageElement.remove();
 }
 
-function makePhoto(element) {
-  placeImage.src = element.querySelector('.photo-card__picture').src;
-  placeImage.alt = element.querySelector('.photo-card__title').textContent;
-  placeTitle.textContent = element.querySelector('.photo-card__title').textContent;
-  openPopup(imageElement);
-}
-
 function setEventListeners (element) {
   const deleteButton = element.querySelector('.photo-card__button-delete');
   deleteButton.addEventListener('click', deleteHandler);
@@ -159,3 +184,6 @@ popupCloseButtonImage.addEventListener('click', function() {
 })
 
 formPlace.addEventListener('submit', handlePlaceFormSubmit);
+
+enableValidation(obj);
+

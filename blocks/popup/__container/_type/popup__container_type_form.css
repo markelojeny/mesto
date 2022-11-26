@@ -1,7 +1,7 @@
 .popup__container_type_form {
     border-radius: 10px;
     background-color: #fff;
-    min-width: 430px;
+    max-width: 430px;
     min-height: 330px;
 }
 
@@ -15,7 +15,7 @@
 
 @media screen and (max-width: 316px) {
     .popup__container_type_form {
-        min-width: 252px;
+        max-width: 252px;
         min-height: 332px;
     }
 }

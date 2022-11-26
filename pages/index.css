@@ -34,6 +34,9 @@
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__button-save/form__button-save.css);
+@import url(../blocks/form/__input/_type/form__input_type_error.css);
 @import url(../blocks/popup/__button-close/popup__button-close.css);
 @import url(../blocks/popup/__picture/popup__picture.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
+@import url(../blocks/form/__button-save/_inactive/form__button-save_inactive.css);
+@import url(../blocks/form/__error/_active/form__error_active.css);
