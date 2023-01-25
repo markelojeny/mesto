@@ -1,4 +1,4 @@
-export default class FormValidate {
+export default class FormValidator {
   constructor(selectors, form) {
     this._form = form;
     this._inputSelector = selectors.inputSelector;
@@ -40,12 +40,12 @@ export default class FormValidate {
     }
   }
 
-  disabledButtonState() {
+  disableButton() {
     this._submitButton.classList.add(this._inactiveButtonSelector);
     this._submitButton.setAttribute("disabled", true);
   }
   
-  unabledButtonState() {
+  _enableButton() {
     this._submitButton.classList.remove(this._inactiveButtonSelector);
     this._submitButton.removeAttribute("disabled", "");
   }
@@ -59,9 +59,9 @@ export default class FormValidate {
   _toggleButtonState() {
 
     if (this._hasNotValidInput()) {
-      this.disabledButtonState();
+      this.disableButton();
     } else {
-      this.unabledButtonState();
+      this._enableButton();
     }
   }
   

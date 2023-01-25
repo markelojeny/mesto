@@ -1,6 +1,3 @@
-import { closePopupOverlay, closeByPopupByEsc } from './utils.js';
-import { imageElement } from './elements.js';
-
 export default class Card {
     constructor(data, templateSelector, handleCardClick) {
       this._name = data.name;
@@ -37,7 +34,7 @@ export default class Card {
       return this._element;
      }
     
-    _deleteHandler() {
+    _setHandler() {
       this._deleteButton.addEventListener('click', () => {
         this._element.remove();
       });
@@ -49,34 +46,15 @@ export default class Card {
       });
     }
 
-    _handleOpenPopup() {
-      imageElement.classList.add('popup_opened');
-      imageElement.addEventListener('mousedown', closePopupOverlay);
-      document.addEventListener('keydown', closeByPopupByEsc);
-    }
-
-    _handleClosePopup() {
-      imageElement.classList.remove('popup_opened');
-      document.removeEventListener('keydown', closeByPopupByEsc);
-      imageElement.removeEventListener('mousedown', closePopupOverlay); 
-    }
-
     _handleZoomImage() {
       this._zommImage.addEventListener('click', () => {
-        this._handleCardClick(this.name, this._link)
+        this._handleCardClick(this._name, this._link)
       });
     }
 
     _setEventListeners() {
-
       this._toggleLike();
-      this._deleteHandler();
+      this._setHandler();
       this._handleZoomImage();
-      
-
-      imageElement.querySelector('.popup__button-close').addEventListener('click', () => {
-        this._handleClosePopup();
-      })
-
     }
   }
