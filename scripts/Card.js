@@ -34,7 +34,7 @@ export default class Card {
       return this._element;
      }
     
-    _setHandler() {
+    _setDeleteHandler() {
       this._deleteButton.addEventListener('click', () => {
         this._element.remove();
       });
@@ -54,7 +54,7 @@ export default class Card {
 
     _setEventListeners() {
       this._toggleLike();
-      this._setHandler();
+      this._setDeleteHandler();
       this._handleZoomImage();
     }
   }

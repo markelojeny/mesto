@@ -1,33 +1,53 @@
 import { openPopup, closePopup } from './utils.js'; 
 import { initialCards, obj } from './const.js';
 import Card from './Card.js';
-import { placeForm, profileForm, popupOpenButtonPlace,  placeNameInput, placeLinkInput, popupOpenButtonElement, popupCloseButtonElement, popupCloseZoomImage, popupCloseButtonPlace, nameInput, jobInput, placeElement, popupElement, photoCard, profileNickname, profileAbout, imageElement, placeImage, placeTitle } from './elements.js';
+import Section from './Section.js';
+import Popup from './Popup.js';
+import PopupWithForm from './PopupWithForm.js';
+import PopupWithPopup from './PopupWithPopup.js';
+import UserInfo from './UserInfo.js';
+import { placeForm, profileForm, popupOpenButtonPlace,  
+  placeNameInput, placeLinkInput, popupOpenButtonElement, 
+  popupCloseButtonElement, popupCloseZoomImage, 
+  popupCloseButtonPlace, nameInput, jobInput, placeElement, 
+  popupElement, photoCard, profileNickname, profileAbout, 
+  imageElement, placeImage, placeTitle } from './elements.js';
 import FormValidator from './FormValidator.js';
 
-const formCardValidate = new FormValidator (obj, placeForm);
-const formEditValidate = new FormValidator (obj, profileForm);
+const formCardValidate = new FormValidator(obj, placeForm);
+const formEditValidate = new FormValidator(obj, profileForm);
+
+const popupPlace = new PopupWithForm({
+    selector: placeElement, 
+    handleFormSubmit: handlePlaceFormSubmit
+})
+
+popupPlace.setEventListeners();
+
+const popupEdit = new PopupWithForm({
+  selector: popupElement, 
+  handleFormSubmit: handleProfileFormSubmit
+})
+
+popupEdit.setEventListeners();
 
 popupOpenButtonPlace.addEventListener('click', function() {
-  placeNameInput.value = "";
-  placeLinkInput.value = "";
   formCardValidate.hideFormsError();
-  openPopup(placeElement);
+  popupPlace.open();
   formCardValidate.disableButton();
 });
   
 popupOpenButtonElement.addEventListener('click', function() {
-  nameInput.value = profileNickname.textContent;
-  jobInput.value = profileAbout.textContent;
   formEditValidate.hideFormsError();
-  openPopup(popupElement);
+  popupEdit.open();
 });
   
   
 popupCloseButtonElement.addEventListener('click', function() {
-  closePopup(popupElement);
+  popupPlace.close();
 });
 popupCloseButtonPlace.addEventListener('click', function() {
-  closePopup(placeElement);
+  popupEdit.close();
 });
   
 function handleProfileFormSubmit (evt) {
@@ -64,7 +84,7 @@ function handlePlaceFormSubmit (evt) {
   evt.preventDefault(); 
   const data = {name: placeNameInput.value, link: placeLinkInput.value};
   renderCard(createCard(data));
-  closePopup(placeElement);
+  placeElement.close();
 }
 
 popupCloseZoomImage.addEventListener('click', function() {
