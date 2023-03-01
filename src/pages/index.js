@@ -18,7 +18,7 @@ const formEditValidate = new FormValidator(obj, profileForm);
 //vstavka v prifile
 
 const popupEdit = new PopupWithForm({ 
-  namePopup: popupElement, 
+  popupSelector: popupElement, 
   handleFormSubmit: handleProfileFormSubmit 
 })
 
@@ -51,7 +51,7 @@ function handleProfileFormSubmit ({ nickname, about }) {
 //vstavka foto
 
 const popupPlace = new PopupWithForm({
-  namePopup: placeElement, 
+  popupSelector: placeElement, 
   handleFormSubmit: handlePlaceFormSubmit
 })
 
@@ -66,8 +66,8 @@ const popupImage = new PopupWithImage(imageElement);
 popupImage.setEventListeners();
 
 const createCard = function (data) {
-  const carding = new Card(data, ".card-template", handleCardClick);
-  return carding.generateCard(carding);
+  const card = new Card(data, ".card-template", handleCardClick);
+  return card.generateCard();
 }
 
 function handleCardClick(name, link) {

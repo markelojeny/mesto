@@ -21,9 +21,9 @@ export default class Card {
       
       this._cardTitle = this._element.querySelector('.photo-card__title');
       this._cardImage = this._element.querySelector('.photo-card__picture');
-      this._deleteButton = this._element.querySelector('.photo-card__button-delete');
+      this._buttonDelete = this._element.querySelector('.photo-card__button-delete');
       this._buttonLike = this._element.querySelector('.photo-card__like');
-      this._zommImage = this._element.querySelector('.photo-card__button-picture');
+      this._zoomImage = this._element.querySelector('.photo-card__button-picture');
 
       this._cardTitle.textContent = this._name;
       this._cardImage.src = this._link;
@@ -34,27 +34,22 @@ export default class Card {
       return this._element;
      }
     
-    _setDeleteHandler() {
-      this._deleteButton.addEventListener('click', () => {
-        this._element.remove();
-      });
+    remove() {
+      this._element.remove();
+      this._element = null;
     }
 
-    _toggleLike() {
-      this._buttonLike.addEventListener('click', (event) => {
-        event.target.classList.toggle('photo-card__like_active');
-      });
+    toggle(evt) {
+      evt.target.classList.toggle('photo-card__like_active');
     }
 
-    _handleZoomImage() {
-      this._zommImage.addEventListener('click', () => {
-        this._handleCardClick(this._name, this._link)
-      });
+    zoomImage() {
+      this._handleCardClick(this._name, this._link)
     }
 
     _setEventListeners() {
-      this._toggleLike();
-      this._setDeleteHandler();
-      this._handleZoomImage();
+      this._buttonLike.addEventListener('click', (evt) => this.toggle(evt));
+      this._buttonDelete.addEventListener('click', () => this.remove());
+      this._zoomImage.addEventListener('click', () => this.zoomImage());
     }
   }
