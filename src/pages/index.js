@@ -1,17 +1,16 @@
-import { openPopup, closePopup } from './utils.js'; 
-import { initialCards, obj } from './const.js';
-import Card from './Card.js';
-import Section from './Section.js';
-import PopupWithForm from './PopupWithForm.js';
-import PopupWithImage from './PopupWithImage.js';
-import UserInfo from './UserInfo.js';
-import { placeForm, profileForm, popupOpenButtonPlace,  
-  placeNameInput, placeLinkInput, popupOpenButtonElement, 
-  popupCloseButtonElement, popupCloseZoomImage, 
-  popupCloseButtonPlace, nameInput, jobInput, placeElement, 
-  popupElement, photoCard, profileNickname, profileAbout, 
-  imageElement, placeImage, placeTitle } from './elements.js';
-import FormValidator from './FormValidator.js';
+import { initialCards, obj } from '../utils/const.js';
+import Card from '../components/Card.js';
+import Section from '../components/Section.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import UserInfo from '../components/UserInfo.js';
+import { placeForm, profileForm, popupOpenButtonPlace, 
+  popupOpenButtonElement, placeElement, 
+  popupElement, profileNickname, profileAbout, 
+  imageElement } from '../utils/elements.js';
+import FormValidator from '../components/FormValidator.js';
+
+import './index.css'
 
 const formCardValidate = new FormValidator(obj, placeForm);
 const formEditValidate = new FormValidator(obj, profileForm);
@@ -72,8 +71,6 @@ const createCard = function (data) {
 }
 
 function handleCardClick(name, link) {
-  console.log(name);
-  console.log(link);
   popupImage.open(name, link);
 }
 
