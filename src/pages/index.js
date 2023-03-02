@@ -5,9 +5,7 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import UserInfo from '../components/UserInfo.js';
 import { placeForm, profileForm, popupOpenButtonPlace, 
-  popupOpenButtonElement, placeElement, 
-  popupElement, profileNickname, profileAbout, 
-  imageElement } from '../utils/elements.js';
+  popupOpenButtonElement, profileNickname, profileAbout } from '../utils/elements.js';
 import FormValidator from '../components/FormValidator.js';
 
 import './index.css'
@@ -18,13 +16,13 @@ const formEditValidate = new FormValidator(obj, profileForm);
 //vstavka v prifile
 
 const popupEdit = new PopupWithForm({ 
-  popupSelector: popupElement, 
+  popupSelector: '.popup_type_edit', 
   handleFormSubmit: handleProfileFormSubmit 
 })
 
 const profileInfo = new UserInfo({ 
-  name: profileNickname,
-  about: profileAbout
+  name: '.profile__nickname',
+  about: '.profile__about'
  })
 
 popupEdit.setEventListeners();
@@ -51,7 +49,7 @@ function handleProfileFormSubmit ({ nickname, about }) {
 //vstavka foto
 
 const popupPlace = new PopupWithForm({
-  popupSelector: placeElement, 
+  popupSelector: '.popup_type_place', 
   handleFormSubmit: handlePlaceFormSubmit
 })
 
@@ -61,7 +59,7 @@ popupOpenButtonPlace.addEventListener('click', function() {
   formCardValidate.disableButton();
 });
 
-const popupImage = new PopupWithImage(imageElement);
+const popupImage = new PopupWithImage('.popup_type_image');
 
 popupImage.setEventListeners();
 

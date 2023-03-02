@@ -23,7 +23,7 @@ export default class Card {
       this._cardImage = this._element.querySelector('.photo-card__picture');
       this._buttonDelete = this._element.querySelector('.photo-card__button-delete');
       this._buttonLike = this._element.querySelector('.photo-card__like');
-      this._zoomImage = this._element.querySelector('.photo-card__button-picture');
+      this._buttonZoom = this._element.querySelector('.photo-card__button-picture');
 
       this._cardTitle.textContent = this._name;
       this._cardImage.src = this._link;
@@ -34,22 +34,22 @@ export default class Card {
       return this._element;
      }
     
-    remove() {
+    _remove() {
       this._element.remove();
       this._element = null;
     }
 
-    toggle(evt) {
-      evt.target.classList.toggle('photo-card__like_active');
+    _toggleLike() {
+      this._buttonLike.classList.toggle('photo-card__like_active');
     }
 
-    zoomImage() {
+    _zoomImage() {
       this._handleCardClick(this._name, this._link)
     }
 
     _setEventListeners() {
-      this._buttonLike.addEventListener('click', (evt) => this.toggle(evt));
-      this._buttonDelete.addEventListener('click', () => this.remove());
-      this._zoomImage.addEventListener('click', () => this.zoomImage());
+      this._buttonLike.addEventListener('click', () => this._toggleLike());
+      this._buttonDelete.addEventListener('click', () => this._remove());
+      this._buttonZoom.addEventListener('click', () => this._zoomImage());
     }
   }
