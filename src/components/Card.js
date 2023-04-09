@@ -1,5 +1,5 @@
 export default class Card {userId
-    constructor(data, templateSelector, handleCardClick, handleCardDelete, api, userId) {
+    constructor(data, templateSelector, handleCardClick, handleCardDelete, handleCardLike, userId) {
       this._data = data;
       this._name = data.name;
       this._link = data.link;
@@ -9,7 +9,7 @@ export default class Card {userId
       this._cardId = data._id;
       this._owner = data.owner;
       this._likes = data.likes;
-      this._api = api;
+      this._handleCardLike = handleCardLike;
       this.userId = userId;
     }
   
@@ -53,39 +53,16 @@ export default class Card {userId
       return this._element;
     }
 
-    _countLikes(res) {
+    countLikes(res) {
       this._likeNumber.textContent = `${res.likes.length}`;
     }
 
-    _setLike() {
+    setLike() {
       this._buttonLike.classList.add('like__button_active');
     }
 
-    _removeLike() {
+    removeLike() {
       this._buttonLike.classList.remove('like__button_active');
-    }
-
-    _handleCardLike() {
-      if (this._buttonLike.classList.contains('like__button_active'))
-      {
-        this._api.deleteLike(this._cardId)
-        .then((res) => {
-          this._removeLike();
-          this._countLikes(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-      } else {
-        this._api.addLike(this._cardId)
-        .then((res) => {
-          this._setLike();
-          this._countLikes(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-      }
     }
 
     _zoomImage() {
@@ -94,7 +71,7 @@ export default class Card {userId
 
     _setEventListeners() {
 
-      this._buttonLike.addEventListener('click', () => this._handleCardLike());
+      this._buttonLike.addEventListener('click', () => this._handleCardLike(this._cardId, this._buttonLike));
       this._buttonDelete.addEventListener('click', () => this._handleCardDelete(this._cardId, this._element));
       this._buttonZoom.addEventListener('click', () => this._zoomImage());
 

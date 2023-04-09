@@ -48,13 +48,13 @@ const popupEdit = new PopupWithForm('.popup_type_edit', (object) => {
       name: object.nickname,
       about: object.about
     });
+    popupEdit.close();
   })
   .catch((error) => {
     console.log(error);
   })
   .finally(() => {
     popupEdit.renderLoading(false);
-    popupEdit.close();
   })
 })
 
@@ -76,13 +76,13 @@ const popupAvatar = new PopupWithForm('.popup_type_avatar', (avatar) => {
   api.changeAvatar(avatar)
   .then(() => {
     profileInfo.setUserAvatar(avatar);
+    popupAvatar.close();
   })
   .catch((error) => {
     console.log(error);
   })
   .finally(() => {
     popupAvatar.renderLoading(false);
-    popupAvatar.close();
   })
 })
 
@@ -111,6 +111,7 @@ const popupPlace = new PopupWithForm('.popup_type_place', (objectImage) => {
   api.addCard(objectImage)
   .then((res) => {
     cardList.addItem(createCard(res));
+    popupPlace.close();
   })
   .catch((error) => {
     console.log(error);
@@ -131,7 +132,16 @@ const popupImage = new PopupWithImage('.popup_type_image');
 
 popupImage.setEventListeners();
 
-const popupDelete = new PopupWithConfirmation('.popup_type_agreement', api);
+const popupDelete = new PopupWithConfirmation('.popup_type_agreement', (id, card) => {
+  api.deleteCard(id)
+  .then(() => {
+  card.remove();
+  card = null;
+  popupDelete.close();
+  })
+  .catch((err) => console.log(err));
+});
+
 popupDelete.setEventListeners();
 
 const createCard = function (data) {
@@ -139,9 +149,29 @@ const createCard = function (data) {
     ".card-template", 
     handleCardClick,
     handleCardDelete,
-    api,
+    (id, buttonLike) => {
+      if (buttonLike.classList.contains('like__button_active')) {
+        api.deleteLike(id)
+        .then((res) => {
+          card.removeLike();
+          card.countLikes(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+      } else {
+        api.addLike(id)
+        .then((res) => {
+          card.setLike();
+          card.countLikes(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+      }
+    },
     userId
-    );
+  );
   return card.generateCard();
 }
 

@@ -1,9 +1,9 @@
 import Popup from './Popup.js';
 export default class PopupWithConfirmation extends Popup {
-    constructor(popupSelector, api) {
+    constructor(popupSelector, handleDeleteCard) {
       super(popupSelector);
       this._card = {};
-      this._api = api;
+      this._handleDeleteCard = handleDeleteCard;
       this._form = this._popupSelector.querySelector('.form');
     }
     
@@ -13,20 +13,15 @@ export default class PopupWithConfirmation extends Popup {
       this._card = card;
     }
 
-    _handleDeleteCard() {
-      this._api.deleteCard(this._cardID)
-      .then(() => {
-      this._card.remove();
-      this.close();
-      })
-      .catch((err) => console.log(err));
+    handleSubmitForm() {
+      this._form.addEventListener('submit', (evt) => {
+        evt.preventDefault();
+        this._handleDeleteCard(this._cardID, this._card);
+      });
     }
 
     setEventListeners() {
       super.setEventListeners();
-      this._form.addEventListener('submit', (evt) => {
-        evt.preventDefault();
-        this._handleDeleteCard();
-        });
+      this.handleSubmitForm();
     }
 }
